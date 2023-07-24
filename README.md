@@ -61,8 +61,7 @@ winrm set winrm/config/client '@{TrustedHosts="<ServerName>"}'
 
 This script is provided as-is without any warranty. Use it at your own risk. The script author is not responsible for any damages or losses caused by using this script.
 
-**Author: Letlaka*
-**Contact: Letlaka**
+**Author: Letlaka**
 
 Please feel free to contribute to the script by creating pull requests or reporting issues. Your feedback and contributions are highly appreciated!
 
