@@ -33,7 +33,23 @@ The **ExchangeServiceChecker.ps1** script is a PowerShell script that helps admi
 
 Edit the `$Servers` array in the script to specify the names of the Exchange servers you want to check.
 
-## Notes
+## Prerequisites
+
+Before running the script, ensure that WinRM (Windows Remote Management) is configured on both the local and remote machines. To enable WinRM on the local machine, open PowerShell as an administrator and run the following command:
+
+```powershell
+Enable-PSRemoting -Force
+```
+
+To enable WinRM on remote machines, you can use the following command (replace `<ServerName>` with the actual name of the remote server):
+
+```powershell
+Enable-WSManCredSSP -Role Server -Force
+winrm set winrm/config/client/auth '@{CredSSP="true"}'
+winrm set winrm/config/client '@{TrustedHosts="<ServerName>"}'
+```
+
+**Notes**
 
 - Please ensure that you have the necessary permissions and network connectivity to access the target servers remotely.
 
@@ -45,8 +61,8 @@ Edit the `$Servers` array in the script to specify the names of the Exchange ser
 
 This script is provided as-is without any warranty. Use it at your own risk. The script author is not responsible for any damages or losses caused by using this script.
 
-**Author: Letlaka**
-**Contact: Letlaka.t@gmail.com**
+**Author: Letlaka*
+**Contact: Letlaka**
 
 Please feel free to contribute to the script by creating pull requests or reporting issues. Your feedback and contributions are highly appreciated!
 
